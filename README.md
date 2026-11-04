@@ -32,7 +32,7 @@ Alle målinger er udført som dobbeltbestemmelse (n = 2) eller flere.
 
 DNA blev oprenset med Quick-DNA™ Fungal/Bacterial Miniprep Kit (Zymo Research). PCR målrettet ITS-regionen (gær/svampe) eller 16S-regionen (bakterier) blev udført med VWR® TEMPase Hot Start DNA Polymerase (VWR). Sekventeringen blev kørt på en MinION Flow Cell (FLO-MIN114) på MinION Mk1D (Oxford Nanopore Technologies).
 
-Den taksonomiske klassificering blev udført med Snakemake-pipelinen emu-smk (AU-ENVS-Bioinformatics, https://github.com/AU-ENVS-Bioinformatics/emu-smk), som kører EMU (Curry et al., 2022). EMU estimerer den taksonomiske sammensætning med en expectation-maximization-algoritme, der er udviklet til fuld-længde amplikonsekvenser fra Oxford Nanopore. Antal sekvenser pr. taxon i datafilerne er derfor EMU's estimerede antal og kan være decimaltal. [INDSÆT: version af emu-smk/EMU samt referencedatabase for 16S og ITS.]
+Den taksonomiske klassificering blev udført med Snakemake-pipelinen emu-smk (AU-ENVS-Bioinformatics, https://github.com/AU-ENVS-Bioinformatics/emu-smk), som kører EMU (Curry et al., 2022). EMU estimerer den taksonomiske sammensætning med en expectation-maximization-algoritme, der er udviklet til fuld-længde amplikonsekvenser fra Oxford Nanopore. Antal sekvenser pr. taxon i datafilerne er derfor EMU's estimerede antal og kan være decimaltal. Der blev brugt EMU v3.4.4 med standardindstillinger. Referencedatabaser: SILVA v138.1 (16S, bakterier; https://www.arb-silva.de/) og UNITE general FASTA release v8.3, fungi (ITS, svampe; https://unite.ut.ee/repository.php, https://dx.doi.org/10.15156/BIO/1280049). Bemærk, at EMU's udviklere angiver, at UNITE-databasen endnu ikke er testet eller valideret til brug med EMU.
 
 Relativ forekomst, som vist i artiklen, er beregnet som antal sekvenser for et taxon divideret med det samlede antal klassificerede sekvenser i prøven (ekskl. rækken `unassigned`) × 100.
 
@@ -67,9 +67,15 @@ Tomme felter betyder, at målingen ikke blev udført for den pågældende bestem
 
 Kolonnerne `tax_id` til `species` angiver taksonomien (NCBI taxonomy ID, rige, række, klasse, orden, familie, slægt og art). Prøvekolonnerne (K…) angiver antal sekvenser tilskrevet det pågældende taxon. `NA` betyder, at taxonet ikke kunne bestemmes på det niveau. Rækken `unassigned` angiver sekvenser, der ikke kunne klassificeres.
 
-## Reference
+## Referencer
 
 Curry, K. D., Wang, Q., Nute, M. G., Tyshaieva, A., Reeves, E., Soriano, S., Wu, Q., Graeber, E., Finzer, P., Mendling, W., Savidge, T., Villapol, S., Dilthey, A., & Treangen, T. J. (2022). Emu: species-level microbial community profiling of full-length 16S rRNA Oxford Nanopore sequencing data. *Nature Methods*, 19, 845–853. https://doi.org/10.1038/s41592-022-01520-4
+
+Quast, C., Pruesse, E., Yilmaz, P., Gerken, J., Schweer, T., Yarza, P., Peplies, J., & Glöckner, F. O. (2013). The SILVA ribosomal RNA gene database project: improved data processing and web-based tools. *Nucleic Acids Research*, 41(D1), D590–D596.
+
+Nilsson, R. H., Larsson, K.-H., Taylor, A. F. S., Bengtsson-Palme, J., Jeppesen, T. S., Schigel, D., Kennedy, P., Picard, K., Glöckner, F. O., Tedersoo, L., Saar, I., Kõljalg, U., & Abarenkov, K. (2019). The UNITE database for molecular identification of fungi: handling dark taxa and parallel taxonomic classifications. *Nucleic Acids Research*, 47(D1), D259–D264.
+
+UNITE Community (2021). UNITE general FASTA release for Fungi. Version 10.05.2021. UNITE Community. https://doi.org/10.15156/BIO/1280049
 
 ## Forbehold
 
@@ -81,4 +87,6 @@ PilotLab Zealand: pilotlab@zealand.dk
 
 ## Licens
 
-Data må frit genbruges med kildeangivelse (CC BY 4.0).
+Data er udgivet under licensen [Creative Commons Navngivelse 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.da). Data må frit deles og bearbejdes, også kommercielt, så længe der gives kildeangivelse.
+
+Kildeangivelse: PilotLab Zealand, Zealand – Sjællands Erhvervsakademi (2026). Rådata: PilotLab Zealand undersøger kombucha. https://github.com/dafo-max/kombucha-data
